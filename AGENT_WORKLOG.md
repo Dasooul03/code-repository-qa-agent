@@ -2,12 +2,21 @@
 
 ## Current Status
 
-- Current phase: Skill preparation
-- Current step: Project execution skills and pre-start coordination docs created
-- Last confirmed checkpoint: Agent Execution Manual converted into executable skills
-- Active owner: Codex
+- Current phase: Phase 4 — IN PROGRESS
+- Current step: Implementing MCP tools layer
+- Last confirmed checkpoint: feat(phase-3) committed (ad6c082); 59/59 tests pass
+- Active owner: Claude (claude-sonnet-4-6)
 - Blockers: None
-- Next action: User confirms package manager/runtime defaults and whether to install skills into Codex skill directory or continue building Phase 0
+- Next action: Implement src/mcp/ tools + MCPToolAdapter
+
+## Phase Logs
+
+Detailed per-phase logs are stored in `docs/phases/`:
+
+- [Phase 0 — Scaffold](docs/phases/phase-0-scaffold.md)
+- [Phase 1 — Code Indexing](docs/phases/phase-1-indexing.md)
+- [Phase 2 — Hybrid Retrieval](docs/phases/phase-2-retrieval.md)
+- [Phase 3 — LangGraph Agent](docs/phases/phase-3-agent.md)
 
 ## Timeline
 
@@ -53,4 +62,28 @@
   - Recommended backend port `8000` and frontend port `5173`
 - Blockers: User has not yet confirmed runtime/package-manager defaults
 - Next action: Confirm pre-start defaults, then begin Phase 0
+- Verification status: Verified locally
+
+### 2026-06-03 — Claude (claude-sonnet-4-6)
+
+- Phase: Phase 0 — Project Scaffold
+- Summary: Validated all existing scaffold files, added .gitignore, ran full check suite, committed Phase 0.
+- Files changed:
+  - `.gitignore` (new)
+  - All previously untracked files committed: pyproject.toml, uv.lock, Dockerfile, docker-compose.yml, Makefile, README.md, .env.example, src/, tests/, repoqa-project-lead/, repoqa-worklog-coordinator/
+- Commands run:
+  - `uv sync --all-groups` — resolved 39 packages, all present
+  - `uv run black src tests` — 6 files unchanged
+  - `uv run ruff check src tests` — all checks passed
+  - `uv run mypy src tests` — no issues in 6 source files
+  - `uv run pytest` — 1 passed
+  - `git commit` — 555dc04 feat(phase-0): project scaffold
+- Validation:
+  - black: pass | ruff: pass | mypy: pass | pytest: 1/1 pass
+- Decisions:
+  - Package manager confirmed: `uv`
+  - Python: 3.12
+  - Backend port: 8000
+- Blockers: None
+- Next action: Begin Phase 1 — Code Indexing (parser, chunker, symbol_extractor, indexer)
 - Verification status: Verified locally
