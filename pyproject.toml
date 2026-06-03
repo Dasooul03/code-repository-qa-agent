@@ -16,6 +16,8 @@ dependencies = [
     "tree-sitter-typescript>=0.23",
     "openai>=1.56.0",
     "qdrant-client>=1.9.0",
+    "rank-bm25>=0.2.2",
+    "sentence-transformers>=3.0.0",
 ]
 
 [dependency-groups]
@@ -52,6 +54,8 @@ module = [
     "tree_sitter_cpp",
     "tree_sitter_javascript",
     "tree_sitter_typescript",
+    "rank_bm25",
+    "sentence_transformers",
 ]
 ignore_missing_imports = true
 
