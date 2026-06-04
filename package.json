@@ -1,0 +1,9 @@
+{
+  "name": "repoqa",
+  "private": true,
+  "scripts": {
+    "prebuild": "npm install -g pnpm",
+    "build": "cd ui && pnpm install && pnpm build"
+  },
+  "packageManager": "pnpm@11.5.1"
+}
